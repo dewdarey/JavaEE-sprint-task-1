@@ -1,7 +1,7 @@
 <form action="/add-task" method="POST">
     <div class="row">
         <div class="col-12">
-            <label>NAME : </label>
+            <label>Name</label>
         </div>
     </div>
     <div class="row mt-2">
@@ -11,51 +11,30 @@
     </div>
     <div class="row mt-3">
         <div class="col-12">
-            <label>AUTHOR : </label>
+            <label>Deadline</label>
         </div>
     </div>
     <div class="row mt-2">
         <div class="col-12">
-            <input type="text" class="form-control" name="task_author">
+            <input type="text" class="form-control" name="task_deadline">
         </div>
     </div>
     <div class="row mt-3">
         <div class="col-12">
-            <label>GENRE : </label>
+            <label>Done</label>
         </div>
     </div>
     <div class="row mt-2">
         <div class="col-12">
-            <select class="form-select" name="task_genre">
-                <option value="">Fantasy</option>
-                <option value="">Roman</option>
-                <option value="">Biography</option>
-                <option value="">Horror</option>
-                <option value="">Comics</option>
+            <select class="form-select" name="task_process">
+                <option value="">Yes</option>
+                <option value="">No</option>
             </select>
         </div>
     </div>
-    <div class="row mt-3">
+        <div class="row mt-3">
         <div class="col-12">
-            <label>PRICE : </label>
-        </div>
-    </div>
-    <div class="row mt-2">
-        <div class="col-12">
-            <select class="form-select" name="task_price">
-                <%
-                    for (int i = 0; i <= 100000; i+=1000) {
-                %>
-                <option><%=i%></option>
-                <%
-                    }
-                %>
-            </select>
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-12">
-            <label>DESCRIPTION : </label>
+            <label>Description</label>
         </div>
     </div>
     <div class="row mt-2">

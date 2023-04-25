@@ -11,45 +11,45 @@ public class TaskDBManager {
         tasks.add(
                 new Task(
                         1,
-                        "Создать Веб приложение на JAVA EE",
+                        "Create Web Application in JAVA EE",
                         "23.10.2021",
-                        "Да",
+                        "Yes",
                         "Harry Potters survives after Voldemot's attack"
                 )
         );
         tasks.add(
                 new Task(
                         2,
-                        "Убраться дома и закупить продукты",
+                        "Clean up the house and buy groceries",
                         "25.10.2021",
-                        "Да",
+                        "Yes",
                         "Sirius Black escaped from Azkaban and he is a godfather of Harry Potter"
                 )
         );
         tasks.add(
                 new Task(
                         3,
-                        "Выполнить все домашние задания",
+                        "Complete all homework",
                         "28.10.2021",
-                        "Нет",
+                        "No",
                         "Bella moves to Alaska from Arizona to her dad"
                 )
         );
         tasks.add(
                 new Task(
                         4,
-                        "Записаться на качку",
+                        "Sign up for a workout",
                         "12.12.2021",
-                        "Нет",
+                        "No",
                         "This story about Abay Kunanbayev's life"
                 )
         );
         tasks.add(
                 new Task(
                         5,
-                        "Учит Итальянский",
+                        "Learn Italian",
                         "23.10.2021",
-                        "Нет",
+                        "No",
                         "This story about Zlatan's childhood, about AJAX, Juventus and Mino Raiola"
                 )
         );

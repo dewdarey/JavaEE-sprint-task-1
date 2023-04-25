@@ -15,8 +15,8 @@ import java.util.ArrayList;
 public class HomeServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        ArrayList<Task> books = TaskDBManager.getBooks();
-        request.setAttribute("books", books);
+        ArrayList<Task> tasks = TaskDBManager.getTasks();
+        request.setAttribute("tasks", tasks);
         request.getRequestDispatcher("/index.jsp").forward(request, response);
 
         /*response.setContentType("text/html");

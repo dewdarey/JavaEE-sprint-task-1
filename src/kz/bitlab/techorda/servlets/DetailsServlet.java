@@ -14,12 +14,12 @@ public class DetailsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = -1;
         try {
-            id = Integer.parseInt(request.getParameter("book_id"));
+            id = Integer.parseInt(request.getParameter("task_id"));
         } catch (Exception e) {
         }
 
-        Task book = TaskDBManager.getBook(id);
-        request.setAttribute("book", book);
+        Task task = TaskDBManager.getTask(id);
+        request.setAttribute("task", task);
         request.getRequestDispatcher("/details.jsp").forward(request, response);
     }
 }

@@ -1,5 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="kz.bitlab.techorda.db.Book" %>
+<%@ page import="kz.bitlab.techorda.db.Task" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
@@ -11,69 +11,59 @@
 
     <div class="container mt-5 pb-5">
         <%
-            Book book = (Book) request.getAttribute("book");
-            if(book!=null) {
+            Task task = (Task) request.getAttribute("task");
+            if(task!=null) {
         %>
 
         <div class="row">
             <div class="col-6 mx-auto">
                 <div class="row">
                     <div class="col-12">
-                        <label>NAME : </label>
+                        <label>Name</label>
                     </div>
                 </div>
                 <div class="row mt-2">
                     <div class="col-12">
-                        <input type="text" class="form-control" readonly value="<%=book.getName()%>">
+                        <input type="text" class="form-control" readonly value="<%=task.getName()%>">
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <label>AUTHOR : </label>
+                        <label>Deadline</label>
                     </div>
                 </div>
                 <div class="row mt-2">
                     <div class="col-12">
-                        <input type="text" class="form-control" readonly value="<%=book.getAuthor()%>">
+                        <input type="text" class="form-control" readonly value="<%=task.getDeadline()%>">
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <label>GENRE : </label>
+                        <label>Done</label>
                     </div>
                 </div>
                 <div class="row mt-2">
                     <div class="col-12">
-                        <input type="text" class="form-control" readonly value="<%=book.getGenre()%>">
+                        <input type="text" class="form-control" readonly value="<%=task.getProcess()%>">
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <label>PRICE : </label>
+                        <label>Description</label>
                     </div>
                 </div>
                 <div class="row mt-2">
                     <div class="col-12">
-                        <input type="text" class="form-control" readonly value="<%=book.getPrice()%> KZT">
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-12">
-                        <label>DESCRIPTION : </label>
-                    </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-12">
-                        <textarea class="form-control" readonly rows="10"><%=book.getDescription()%></textarea>
+                        <textarea class="form-control" readonly rows="10"><%=task.getDescription()%></textarea>
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editTask" >
-                            Изменить
+                            Edit
                         </button>
                         <button type="button" class="btn btn-danger btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#deleteTask">
-                            Удалить
+                            Delete
                         </button>
 
                     </div>
@@ -82,17 +72,17 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <form action="/delete-task" method="post">
-                                <input type="hidden" name="id" value="<%=book.getId()%>">
+                                <input type="hidden" name="id" value="<%=task.getId()%>">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5">Подтвердите удаление</h1>
+                                    <h1 class="modal-title fs-5">Confirm Deletion</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <h5 class="text-center">Вы уверены что хотите удалить?</h5>
+                                    <h5 class="text-center">Are you sure?</h5>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Нет</button>
-                                    <button class="btn btn-danger">Да</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                    <button class="btn btn-danger">Yes</button>
                                 </div>
                             </form>
                         </div>
@@ -102,86 +92,65 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Новое задание</h1>
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">New Task</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <form action="/save-task" method="POST">
-                                    <input type="hidden" name="book_id" value="<%=book.getId()%>">
+                                    <input type="hidden" name="task_id" value="<%=task.getId()%>">
                                     <div class="row">
                                         <div class="col-12">
-                                            <label>NAME : </label>
+                                            <label>Name</label>
                                         </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-12">
-                                            <input type="text" class="form-control" name="book_name" value="<%=book.getName()%>">
+                                            <input type="text" class="form-control" name="task_name" value="<%=task.getName()%>">
                                         </div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-12">
-                                            <label>AUTHOR : </label>
+                                            <label>Deadline</label>
                                         </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-12">
-                                            <input type="text" class="form-control" name="book_author" value="<%=book.getAuthor()%>">
+                                            <input type="text" class="form-control" name="task_deadline" value="<%=task.getDeadline()%>">
                                         </div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-12">
-                                            <label>GENRE : </label>
+                                            <label>Done</label>
                                         </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-12">
-                                            <select class="form-select" name="book_genre">
-                                                <option <%=(book.getGenre().equals("Fantasy")?"selected":"")%> >Fantasy</option>
-                                                <option <%=(book.getGenre().equals("Roman")?"selected":"")%> >Roman</option>
-                                                <option <%=(book.getGenre().equals("Biography")?"selected":"")%> >Biography</option>
-                                                <option <%=(book.getGenre().equals("Horror")?"selected":"")%> >Horror</option>
-                                                <option <%=(book.getGenre().equals("Comics")?"selected":"")%> >Comics</option>
+                                            <select class="form-select" name="task_process">
+                                                <option <%=(task.getProcess().equals("Yes")?"selected":"")%> >Yes</option>
+                                                <option <%=(task.getProcess().equals("No")?"selected":"")%> >No</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-12">
-                                            <label>PRICE : </label>
+                                            <label>Description</label>
                                         </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-12">
-                                            <select class="form-select" name="book_price">
-                                                <%
-                                                    for (int i = 0; i <= 100000; i+=1000) {
-                                                %>
-                                                <option <%=(i==book.getPrice()?"selected":"")%>><%=i%></option>
-                                                <%
-                                                    }
-                                                %>
-                                            </select>
+                                            <textarea rows="10" class="form-control" name="task_description"><%=task.getDescription()%></textarea>
                                         </div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-12">
-                                            <label>DESCRIPTION : </label>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-2">
-                                        <div class="col-12">
-                                            <textarea rows="10" class="form-control" name="book_description"><%=book.getDescription()%></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-12">
-                                            <button class="btn btn-success">Сохранить</button>
+                                            <button class="btn btn-success">Save</button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                                <button type="button" class="btn btn-primary">Добавить</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Add</button>
                             </div>
                         </div>
                     </div>
@@ -193,7 +162,7 @@
             } else {
         %>
             <h3 class="text-center">
-                ЗАДАНИЕ НЕ НАЙДЕНО
+                TASK NOT FOUND
             </h3>
         <%
             }

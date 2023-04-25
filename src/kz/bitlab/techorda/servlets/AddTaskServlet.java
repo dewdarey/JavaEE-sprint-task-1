@@ -15,8 +15,8 @@ public class AddTaskServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("task_name");
-        String author = request.getParameter("task_deadline");
-        String genre = request.getParameter("task_process");
+        String deadline = request.getParameter("task_deadline");
+        String process = request.getParameter("task_process");
         String description = request.getParameter("task_description");
 
         Task task = new Task();
@@ -24,9 +24,7 @@ public class AddTaskServlet extends HttpServlet {
         task.setDeadline(deadline);
         task.setProcess(process);
         task.setDescription(description);
-
         TaskDBManager.addTask(task);
-
         response.sendRedirect("/");
     }
 }

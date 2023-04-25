@@ -19,7 +19,7 @@
             <div class="col-6 mx-auto">
                 <div class="row">
                     <div class="col-12">
-                        <label>Наименование : </label>
+                        <label>Name</label>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -29,7 +29,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <label>Крайний срок : </label>
+                        <label>Deadline</label>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -39,17 +39,17 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <label>Выполнено : </label>
+                        <label>Done</label>
                     </div>
                 </div>
                 <div class="row mt-2">
                     <div class="col-12">
-                        <input type="text" class="form-control" readonly value="<%=task.getDeadline()%>">
+                        <input type="text" class="form-control" readonly value="<%=task.getProcess()%>">
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <label>Детали : </label>
+                        <label>Description</label>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -60,10 +60,10 @@
                 <div class="row mt-3">
                     <div class="col-12">
                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editTask" >
-                            Изменить
+                            Edit
                         </button>
                         <button type="button" class="btn btn-danger btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#deleteTask">
-                            Удалить
+                            Delete
                         </button>
 
                     </div>
@@ -74,15 +74,15 @@
                             <form action="/delete-task" method="post">
                                 <input type="hidden" name="id" value="<%=task.getId()%>">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5">Подтвердите удаление</h1>
+                                    <h1 class="modal-title fs-5">Confirm Deletion</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <h5 class="text-center">Вы уверены что хотите удалить?</h5>
+                                    <h5 class="text-center">Are you sure?</h5>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Нет</button>
-                                    <button class="btn btn-danger">Да</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                    <button class="btn btn-danger">Yes</button>
                                 </div>
                             </form>
                         </div>
@@ -92,7 +92,7 @@
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Новое задание</h1>
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">New Task</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -100,7 +100,7 @@
                                     <input type="hidden" name="task_id" value="<%=task.getId()%>">
                                     <div class="row">
                                         <div class="col-12">
-                                            <label>Наименование : </label>
+                                            <label>Name</label>
                                         </div>
                                     </div>
                                     <div class="row mt-2">
@@ -110,30 +110,30 @@
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-12">
-                                            <label>Крайний срок : </label>
+                                            <label>Deadline</label>
                                         </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-12">
-                                            <input type="text" class="form-control" name="task_author" value="<%=task.getDeadline()%>">
+                                            <input type="text" class="form-control" name="task_deadline" value="<%=task.getDeadline()%>">
                                         </div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-12">
-                                            <label>Выполнено : </label>
+                                            <label>Done</label>
                                         </div>
                                     </div>
                                     <div class="row mt-2">
                                         <div class="col-12">
-                                            <select class="form-select" name="task_genre">
-                                                <option <%=(task.getProcess().equals("Да")?"selected":"")%> >Да</option>
-                                                <option <%=(task.getProcess().equals("Нет")?"selected":"")%> >Нет</option>
+                                            <select class="form-select" name="task_process">
+                                                <option <%=(task.getProcess().equals("Yes")?"selected":"")%> >Yes</option>
+                                                <option <%=(task.getProcess().equals("No")?"selected":"")%> >No</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-12">
-                                            <label>Описание : </label>
+                                            <label>Description</label>
                                         </div>
                                     </div>
                                     <div class="row mt-2">
@@ -143,14 +143,14 @@
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-12">
-                                            <button class="btn btn-success">Сохранить</button>
+                                            <button class="btn btn-success">Save</button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                                <button type="button" class="btn btn-primary">Добавить</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Add</button>
                             </div>
                         </div>
                     </div>
@@ -162,7 +162,7 @@
             } else {
         %>
             <h3 class="text-center">
-                ЗАДАНИЕ НЕ НАЙДЕНО
+                TASK NOT FOUND
             </h3>
         <%
             }

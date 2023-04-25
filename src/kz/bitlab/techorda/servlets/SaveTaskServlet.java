@@ -12,22 +12,20 @@ import java.io.IOException;
 public class SaveTaskServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("book_id"));
-        String name = request.getParameter("book_name");
-        String author = request.getParameter("book_author");
-        String genre = request.getParameter("book_genre");
-        double price = Double.parseDouble(request.getParameter("book_price"));
-        String description = request.getParameter("book_description");
+        int id = Integer.parseInt(request.getParameter("task_id"));
+        String name = request.getParameter("task_name");
+        String deadline = request.getParameter("task_deadline");
+        String process = request.getParameter("task_process");
+        String description = request.getParameter("task_description");
 
-        Task book = TaskDBManager.getBook(id);
-        if(book!=null) {
-            book.setName(name);
-            book.setAuthor(author);
-            book.setPrice(price);
-            book.setGenre(genre);
-            book.setDescription(description);
-            TaskDBManager.updateBook(book);
-            response.sendRedirect("/details?book_id="+id);
+        Task task = TaskDBManager.getTask(id);
+        if(task!=null) {
+            task.setName(name);
+            task.setDeadline(deadline);
+            task.setProcess(process);
+            task.setDescription(description);
+            TaskDBManager.updateTask(task);
+            response.sendRedirect("/details?task_id="+id);
         } else {
             response.sendRedirect("/");
         }

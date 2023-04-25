@@ -12,7 +12,7 @@ public class DeleteTaskServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        TaskDBManager.deleteBook(id);
+        TaskDBManager.deleteTask(id);
 
         response.sendRedirect("/");
     }
