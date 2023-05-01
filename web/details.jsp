@@ -59,10 +59,10 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
-                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editTask" >
+                        <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editTask" >
                             Edit
                         </button>
-                        <button type="button" class="btn btn-danger btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#deleteTask">
+                        <button type="button" class="btn btn-outline-danger btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#deleteTask">
                             Delete
                         </button>
 
@@ -81,7 +81,7 @@
                                     <h5 class="text-center">Are you sure?</h5>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>
                                     <button class="btn btn-danger">Yes</button>
                                 </div>
                             </form>
@@ -143,14 +143,13 @@
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-12">
-                                            <button class="btn btn-success">Save</button>
+                                            <button class="btn btn-outline-success">Save</button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Add</button>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>

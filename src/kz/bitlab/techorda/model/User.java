@@ -1,49 +1,50 @@
 package kz.bitlab.techorda.model;
 
 public class User {
-    String name;
-    String surname;
-    String department;
-    int salary;
+    Long id;
+    String email;
+    String password;
+    String fullName;
 
-    public User() {}
-
-    public User(String name, String surname, String department, int salary) {
-        this.name = name;
-        this.surname = surname;
-        this.department = department;
-        this.salary = salary;
+    public User() {
     }
 
-    public String getName() {
-        return name;
+    public User(Long id, String email, String password, String fullName) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.fullName = fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Long getId() {
+        return id;
     }
 
-    public String getSurname() {
-        return surname;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public String getEmail() {
+        return email;
     }
 
-    public String getDepartment() {
-        return department;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
+    public String getPassword() {
+        return password;
     }
 
-    public int getSalary() {
-        return salary;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 }

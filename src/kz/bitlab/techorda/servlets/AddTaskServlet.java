@@ -5,10 +5,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import kz.bitlab.techorda.db.DBConnection;
 import kz.bitlab.techorda.db.Task;
-import kz.bitlab.techorda.db.TaskDBManager;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
 
 @WebServlet(value = "/add-task")
 public class AddTaskServlet extends HttpServlet {
@@ -24,7 +25,10 @@ public class AddTaskServlet extends HttpServlet {
         task.setDeadline(deadline);
         task.setProcess(process);
         task.setDescription(description);
-        TaskDBManager.addTask(task);
+
+        DBConnection.addTask(task);
+
         response.sendRedirect("/");
     }
+
 }

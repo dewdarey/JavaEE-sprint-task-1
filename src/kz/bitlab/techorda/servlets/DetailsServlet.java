@@ -3,8 +3,8 @@ package kz.bitlab.techorda.servlets;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import kz.bitlab.techorda.db.DBConnection;
 import kz.bitlab.techorda.db.Task;
-import kz.bitlab.techorda.db.TaskDBManager;
 
 import java.io.IOException;
 
@@ -18,7 +18,7 @@ public class DetailsServlet extends HttpServlet {
         } catch (Exception e) {
         }
 
-        Task task = TaskDBManager.getTask(id);
+        Task task = DBConnection.getTask(id);
         request.setAttribute("task", task);
         request.getRequestDispatcher("/details.jsp").forward(request, response);
     }

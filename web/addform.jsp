@@ -44,7 +44,7 @@
     </div>
     <div class="row mt-3">
         <div class="col-12">
-            <button class="btn btn-dark" style="background:#1e1961;">ADD TASK</button>
+            <button class="btn btn-outline-success">ADD TASK</button>
         </div>
     </div>
 </form>

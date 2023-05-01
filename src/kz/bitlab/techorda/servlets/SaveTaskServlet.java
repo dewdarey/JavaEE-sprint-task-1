@@ -3,7 +3,7 @@ package kz.bitlab.techorda.servlets;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import kz.bitlab.techorda.db.TaskDBManager;
+import kz.bitlab.techorda.db.DBConnection;
 import kz.bitlab.techorda.db.Task;
 
 import java.io.IOException;
@@ -18,13 +18,13 @@ public class SaveTaskServlet extends HttpServlet {
         String process = request.getParameter("task_process");
         String description = request.getParameter("task_description");
 
-        Task task = TaskDBManager.getTask(id);
+        Task task = DBConnection.getTask(id);
         if(task!=null) {
             task.setName(name);
             task.setDeadline(deadline);
             task.setProcess(process);
             task.setDescription(description);
-            TaskDBManager.updateTask(task);
+            DBConnection.updateTask(task);
             response.sendRedirect("/details?task_id="+id);
         } else {
             response.sendRedirect("/");

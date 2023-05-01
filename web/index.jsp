@@ -12,7 +12,7 @@
         <div class="container mt-5">
             <div class="row mt-3">
                 <div class="col-12">
-                    <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#addTask" style="background:#1e1961;">
+                    <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#addTask"">
                         + Add Task
                     </button>
 
@@ -27,8 +27,7 @@
                                     <%@include file="addform.jsp"%>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Add</button>
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +59,7 @@
                                     <td><%=task.getDeadline()%></td>
                                     <td><%=task.getProcess()%></td>
                                     <td>
-                                        <a class="btn btn-dark btn-sm" style="background:#1e1961;" href="/details?task_id=<%=task.getId()%>">Details</a>
+                                        <a class="btn btn-outline-secondary btn-sm" href="/details?task_id=<%=task.getId()%>">Details</a>
                                     </td>
                                 </tr>
                             <%
